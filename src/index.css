@@ -1,4 +1,8 @@
 /*glogal*/
+*{
+  margin: 0;
+  padding: 0;
+}
 
 .pg-produo {
   background-color: #13141c;
