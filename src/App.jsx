@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import { MainPage } from './componentes/mainPage'
-import LandingPage from './componentes/LadingPage'
-import { Produ } from './componentes/Produ'
-import { NavBar } from './componentes/Navbar'
+import { LandingPage } from './componentes/LandingPage'
+import { MainPage } from './componentes/MainPage'
+
 
 function App() {
   return (
-    <>
-    
-    <Produ/>
-    
+    <> 
+    <MainPage/>
     </>
   )
 }

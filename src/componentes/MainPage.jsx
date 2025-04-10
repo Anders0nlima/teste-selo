@@ -1,10 +1,12 @@
 import React from "react";
-import { NavBar } from "./Navbar";
+import { LandingPage } from './LandingPage'
+import { NavBar } from './Navbar'
 
 export const MainPage = () => {
   return (
     <>
     <NavBar/>
+    <LandingPage/>
     </>
   );
 };
