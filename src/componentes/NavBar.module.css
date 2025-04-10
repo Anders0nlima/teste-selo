@@ -1,0 +1,84 @@
+.frame {
+    background-color: #0d0d0dcf;
+    height: 57px;
+    width: 1984px;
+  }
+  
+  .frame .div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    left: 846px;
+    position: relative;
+    top: 10px;
+    width: 992px;
+  }
+  
+  .frame .group {
+    height: 34.48px;
+    position: relative;
+    width: 166px;
+  }
+  
+  .frame .vector {
+    height: 23px;
+    left: 46px;
+    position: absolute;
+    top: 5px;
+    width: 120px;
+  }
+  
+  .frame .img {
+    height: 34px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 35px;
+  }
+  
+  .frame .div_2 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 69px;
+    position: relative;
+  }
+  
+  .frame .div_3 {
+    align-items: center;
+    border: 1px solid;
+    border-color: #d9d9d9;
+    border-radius: 95px;
+    display: flex;
+    gap: 11px;
+    height: 33px;
+    padding: 4px;
+    position: relative;
+    width: 132px;
+  }
+  
+  .frame .images {
+    height: 25px;
+    object-fit: cover;
+    position: relative;
+    width: 36px;
+  }
+  
+  .frame .text_wrapper {
+    color: #d9d9d9;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .frame .icon_magnifying {
+    height: 31px;
+    position: relative;
+    width: 31px;
+  }
+  
