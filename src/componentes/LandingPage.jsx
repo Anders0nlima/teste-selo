@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import styles from "./LandingPage.module.css";
@@ -7,6 +8,7 @@ import video1 from "../assets/video1.mp4"
 export const LandingPage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+  const { t } = useLanguage();
 
   const togglePlayPause = () => {
     if (videoRef.current) {
@@ -36,7 +38,7 @@ export const LandingPage = () => {
 
           <div className={styles.frame}>
             <div className={styles.div}>
-              <div className={styles.text_wrapper}>Negócios</div>
+              <div className={styles.text_wrapper}>{t('landingPage.business')}</div>
               <div className={styles.group}>
                 <img
                   className={styles.vector}
@@ -52,11 +54,9 @@ export const LandingPage = () => {
             </div>
 
             <div className={styles.frame_2}>
-              <div className={styles.text_wrapper_2}>Produções cinematográficas</div>
+              <div className={styles.text_wrapper_2}>{t('landingPage.filmProductions')}</div>
               <p className={styles.escolha_a_melhor_op}>
-                Escolha a melhor opção para sua produção cinematográfica,
-                retire suas ideias do papel e veja como podemos ajudar você
-                a produzir mais.
+                {t('landingPage.description')}
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export const LandingPage = () => {
               className={styles.play_icon} 
             />
             <div className={styles.text_wrapper_5}>
-              {isPlaying ? 'Pausar' : 'Assista'}
+              {isPlaying ? t('landingPage.pauseButton') : t('landingPage.watchButton')}
             </div>
           </button>
         </div>

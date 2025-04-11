@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { LandingPage } from './componentes/LandingPage'
-import { MainPage } from './componentes/MainPage'
+import { MainPage } from './componentes/mainPage'
 
 
 function App() {

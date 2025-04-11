@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import styles from "./NavBar.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -6,15 +7,18 @@ import brazilFlag from '../assets/brazilFlag.webp';
 import ukFlag from '../assets/ukFlag.png';
 
 export const NavBar = () => {
+  const { language, changeLanguage } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [navbarFixed, setNavbarFixed] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [currentLanguage, setCurrentLanguage] = useState({
-    code: 'pt',
-    name: 'Português',
-    flag: brazilFlag
-  });
+
+  // Estado derivado do idioma atual
+  const currentLanguage = {
+    code: language,
+    name: language === 'pt' ? 'Português' : 'English',
+    flag: language === 'pt' ? brazilFlag : ukFlag
+  };
 
   // Efeito para controlar o scroll e a posição do navbar
   useEffect(() => {
@@ -67,27 +71,13 @@ export const NavBar = () => {
     if (!menuOpen) setLanguageOpen(false);
   };
 
-  // Função que estava faltando - adicionada aqui
   const toggleLanguage = () => {
     setLanguageOpen(!languageOpen);
   };
 
-  const changeLanguage = (language) => {
-    if (language === 'pt') {
-      setCurrentLanguage({
-        code: 'pt',
-        name: 'Português',
-        flag: brazilFlag
-      });
-    } else {
-      setCurrentLanguage({
-        code: 'en',
-        name: 'English',
-        flag: ukFlag
-      });
-    }
+  const handleLanguageChange = (lang) => {
+    changeLanguage(lang); // Usa a função do contexto
     setLanguageOpen(false);
-    console.log(`Idioma alterado para: ${language}`);
   };
 
   return (
@@ -133,8 +123,8 @@ export const NavBar = () => {
             {languageOpen && (
               <div className={styles.languageDropdown}>
                 <button 
-                  className={`${styles.languageOption} ${currentLanguage.code === 'pt' ? styles.selected : ''}`}
-                  onClick={() => changeLanguage('pt')}
+                  className={`${styles.languageOption} ${language === 'pt' ? styles.selected : ''}`}
+                  onClick={() => handleLanguageChange('pt')}
                 >
                   <div className={styles.flagContainer}>
                     <img src={brazilFlag} alt="Português" className={styles.flagImage} />
@@ -142,8 +132,8 @@ export const NavBar = () => {
                   <span>Português</span>
                 </button>
                 <button 
-                  className={`${styles.languageOption} ${currentLanguage.code === 'en' ? styles.selected : ''}`}
-                  onClick={() => changeLanguage('en')}
+                  className={`${styles.languageOption} ${language === 'en' ? styles.selected : ''}`}
+                  onClick={() => handleLanguageChange('en')}
                 >
                   <div className={styles.flagContainer}>
                     <img src={ukFlag} alt="English" className={styles.flagImage} />
